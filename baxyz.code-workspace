@@ -17,6 +17,10 @@
       "path": "../firefox-profiles"
     },
     {
+      "name": "gnome-extensions",
+      "path": "../gnome-extensions"
+    },
+    {
       "name": "repo-proxy",
       "path": "../repo-proxy"
     }
@@ -30,7 +34,14 @@
       "agents",
       "ci",
       "docs",
-      "deps"
+      "deps",
+      "browser-profiles",
+      "browser-profiles/extension",
+      "browser-profiles/menu",
+      "browser-profiles/constants",
+      "browser-profiles/build",
+      "browser-profiles/tests",
+      "tooling"
     ]
   }
 }
