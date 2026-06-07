@@ -1,0 +1,24 @@
+{
+  "folders": [
+    { "name": ".dev", "path": "." },
+    { "name": ".github", "path": "../.github" },
+    { "name": "baxyz.github.io", "path": "../baxyz.github.io" },
+    { "name": ".trivial", "path": "../.trivial" },
+    { "name": "firefox-profiles", "path": "../firefox-profiles" },
+    { "name": "repo-proxy", "path": "../repo-proxy" },
+    { "name": "new-blog", "path": "../new-blog" },
+    { "name": "zen-mods", "path": "../zen-mods" }
+  ],
+  "settings": {
+    "conventionalCommits.gitmoji": true,
+    "conventionalCommits.scopes": [
+      "devcontainer",
+      "workspace",
+      "scripts",
+      "agents",
+      "ci",
+      "docs",
+      "deps"
+    ]
+  }
+}

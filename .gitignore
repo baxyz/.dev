@@ -1,0 +1,19 @@
+# Node
+node_modules/
+
+# VS Code
+.history/
+.vscode/*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+*.swp
+*.swo
+*~
+
+# Local env
+.env
+.env.local

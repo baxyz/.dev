@@ -1,0 +1,83 @@
+{
+  "name": "baxyz",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
+  // Orchestrator devcontainer for the baxyz personal workspace.
+  //
+  // Bind-mounts every active baxyz repo from the host (../<name>) into
+  // /workspaces/<name>. Falls back to `gh repo clone` inside the container
+  // if a sibling repo is missing on host (e.g. GitHub Codespaces).
+  "workspaceFolder": "/workspaces/.dev",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/.dev,type=bind,consistency=cached",
+  "mounts": [
+    "source=${localWorkspaceFolder}/../.github,target=/workspaces/.github,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../baxyz.github.io,target=/workspaces/baxyz.github.io,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../.trivial,target=/workspaces/.trivial,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../firefox-profiles,target=/workspaces/firefox-profiles,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../repo-proxy,target=/workspaces/repo-proxy,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../new-blog,target=/workspaces/new-blog,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../zen-mods,target=/workspaces/zen-mods,type=bind,consistency=cached",
+    // Shared pnpm store volume — persists across rebuilds.
+    "source=baxyz-pnpm-store,target=/.pnpm-store,type=volume"
+  ],
+  "containerEnv": {
+    "BAXYZ_ORG": "baxyz",
+    "BAXYZ_REPOS": ".github baxyz.github.io .trivial firefox-profiles repo-proxy new-blog zen-mods",
+    "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}"
+  },
+  // GH_TOKEN: forwards a baxyz-scoped host token into the container so gh
+  // and the GitHub VS Code extensions are authenticated out of the box.
+  // Set on the host: export GH_TOKEN_FOR_BAXYZ=<token>
+  "remoteEnv": {
+    "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false
+    },
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    // ── helpers4 features ─────────────────────────────────────────────────────
+    "ghcr.io/helpers4/devcontainer/dotfiles-sync:1": {},
+    "ghcr.io/helpers4/devcontainer/shell-history-per-project:1": {},
+    "ghcr.io/helpers4/devcontainer/git-absorb:1": {},
+    "ghcr.io/helpers4/devcontainer/essential-dev:1": {},
+    "ghcr.io/helpers4/devcontainer/github-dev:1": {},
+    "ghcr.io/helpers4/devcontainer/typescript-dev:1": {},
+    "ghcr.io/helpers4/devcontainer/vite-plus:1": {},
+    "ghcr.io/helpers4/devcontainer/peon-ping:1": {
+      "packs": "peasant_fr,peon_fr,warcraft-peon"
+    },
+    "ghcr.io/helpers4/devcontainer/pnpm-store:1": {},
+    "ghcr.io/helpers4/devcontainer/claude-dev:1": {},
+    "ghcr.io/helpers4/devcontainer/package-auto-install:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode-remote.remote-containers",
+        "streetsidesoftware.code-spell-checker",
+        "timonwong.shellcheck"
+      ]
+    }
+  },
+  "forwardPorts": [
+    3000,
+    4321,
+    5173
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Dev server",
+      "onAutoForward": "notify"
+    },
+    "4321": {
+      "label": "Astro dev server",
+      "onAutoForward": "notify"
+    },
+    "5173": {
+      "label": "Vite dev server",
+      "onAutoForward": "silent"
+    }
+  },
+  "remoteUser": "node",
+  "postCreateCommand": "bash .devcontainer/setup-container.sh"
+}
