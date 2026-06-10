@@ -13,10 +13,6 @@
       "path": "../baxyz.github.io"
     },
     {
-      "name": "firefox-profiles",
-      "path": "../firefox-profiles"
-    },
-    {
       "name": "gnome-extensions",
       "path": "../gnome-extensions"
     },
@@ -35,12 +31,13 @@
       "ci",
       "docs",
       "deps",
-      "browser-profiles",
-      "browser-profiles/extension",
-      "browser-profiles/menu",
-      "browser-profiles/constants",
-      "browser-profiles/build",
-      "browser-profiles/tests",
+      "browser-hub",
+      "browser-hub/extension",
+      "browser-hub/menu",
+      "browser-hub/constants",
+      "browser-hub/build",
+      "browser-hub/tests",
+      "firefox-profiles",
       "tooling"
     ]
   }

@@ -11,14 +11,14 @@
   "mounts": [
     "source=${localWorkspaceFolder}/../.github,target=/workspaces/.github,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../baxyz.github.io,target=/workspaces/baxyz.github.io,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../firefox-profiles,target=/workspaces/firefox-profiles,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../gnome-extensions,target=/workspaces/gnome-extensions,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../repo-proxy,target=/workspaces/repo-proxy,type=bind,consistency=cached",
     // Shared pnpm store volume — persists across rebuilds.
     "source=baxyz-pnpm-store,target=/.pnpm-store,type=volume"
   ],
   "containerEnv": {
     "BAXYZ_ORG": "baxyz",
-    "BAXYZ_REPOS": ".github baxyz.github.io firefox-profiles repo-proxy",
+    "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions repo-proxy",
     "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}"
   },
   // GH_TOKEN: forwards a baxyz-scoped host token into the container so gh
