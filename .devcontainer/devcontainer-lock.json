@@ -11,9 +11,9 @@
       "integrity": "sha256:71c2b371cf12ab7fcec47cf17369c6f59156100dad9abf9e4c593049d789de72"
     },
     "ghcr.io/helpers4/devcontainer/claude-dev:1": {
-      "version": "1.0.1",
-      "resolved": "ghcr.io/helpers4/devcontainer/claude-dev@sha256:8625221ea66e93614e972198f734ff08520105c0caa95e0079856b74c2fab69b",
-      "integrity": "sha256:8625221ea66e93614e972198f734ff08520105c0caa95e0079856b74c2fab69b"
+      "version": "1.0.2",
+      "resolved": "ghcr.io/helpers4/devcontainer/claude-dev@sha256:49ae20ffb022a1570fa027a00537e4972647281d421fa226f7542bb42042eccd",
+      "integrity": "sha256:49ae20ffb022a1570fa027a00537e4972647281d421fa226f7542bb42042eccd"
     },
     "ghcr.io/helpers4/devcontainer/dotfiles-sync:1": {
       "version": "1.0.5",
@@ -46,9 +46,9 @@
       "integrity": "sha256:cc471d5896ba394a00ee392e74f05f9339968af68937ec7cfad4ab68ff8ca354"
     },
     "ghcr.io/helpers4/devcontainer/pnpm-store:1": {
-      "version": "1.0.5",
-      "resolved": "ghcr.io/helpers4/devcontainer/pnpm-store@sha256:52c10968a679ce27a9efbf5d04045c75a9b212c29f09cbf52f906c6ebc0853c8",
-      "integrity": "sha256:52c10968a679ce27a9efbf5d04045c75a9b212c29f09cbf52f906c6ebc0853c8"
+      "version": "1.0.7",
+      "resolved": "ghcr.io/helpers4/devcontainer/pnpm-store@sha256:fca3484bd17e53cc295808598f4a4cd8e8719b86e6cb5893270ce1cdca4f503c",
+      "integrity": "sha256:fca3484bd17e53cc295808598f4a4cd8e8719b86e6cb5893270ce1cdca4f503c"
     },
     "ghcr.io/helpers4/devcontainer/shell-history-per-project:1": {
       "version": "1.0.6",
@@ -59,17 +59,13 @@
       "version": "1.0.7",
       "resolved": "ghcr.io/helpers4/devcontainer/typescript-dev@sha256:76abf803b00fcfaa628588e0f6e0c532c590fabdd88748a65557a83d66de3f6d",
       "integrity": "sha256:76abf803b00fcfaa628588e0f6e0c532c590fabdd88748a65557a83d66de3f6d",
-      "dependsOn": [
-        "ghcr.io/helpers4/devcontainer/essential-dev:1"
-      ]
+      "dependsOn": ["ghcr.io/helpers4/devcontainer/essential-dev:1"]
     },
     "ghcr.io/helpers4/devcontainer/vite-plus:1": {
       "version": "1.0.7",
       "resolved": "ghcr.io/helpers4/devcontainer/vite-plus@sha256:d958f9f12d56dea65a4b63821e47d47ffd67ea25642053c9cc088990e7044352",
       "integrity": "sha256:d958f9f12d56dea65a4b63821e47d47ffd67ea25642053c9cc088990e7044352",
-      "dependsOn": [
-        "ghcr.io/helpers4/devcontainer/typescript-dev:1"
-      ]
+      "dependsOn": ["ghcr.io/helpers4/devcontainer/typescript-dev:1"]
     }
   }
 }
