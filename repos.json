@@ -6,6 +6,7 @@
     "gnome-extensions",
     "repo-proxy",
     "new-blog",
-    "zen-mods"
+    "zen-mods",
+    "mozlz4"
   ]
 }

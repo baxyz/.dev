@@ -19,6 +19,10 @@
     {
       "name": "repo-proxy",
       "path": "../repo-proxy"
+    },
+    {
+      "name": "mozlz4",
+      "path": "../mozlz4"
     }
   ],
   "settings": {
@@ -26,6 +30,7 @@
     "conventionalCommits.scopes": [
       "devcontainer",
       "workspace",
+      "mozlz4",
       "scripts",
       "agents",
       "ci",
