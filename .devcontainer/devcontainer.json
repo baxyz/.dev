@@ -13,11 +13,12 @@
     "source=${localWorkspaceFolder}/../baxyz.github.io,target=/workspaces/baxyz.github.io,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../gnome-extensions,target=/workspaces/gnome-extensions,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../repo-proxy,target=/workspaces/repo-proxy,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../mozlz4,target=/workspaces/mozlz4,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/../mozlz4,target=/workspaces/mozlz4,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../sqlite-reader,target=/workspaces/sqlite-reader,type=bind,consistency=cached"
   ],
   "containerEnv": {
     "BAXYZ_ORG": "baxyz",
-    "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions repo-proxy mozlz4",
+    "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions repo-proxy mozlz4 sqlite-reader",
     "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}"
   },
   // GH_TOKEN: forwards a baxyz-scoped host token into the container so gh
