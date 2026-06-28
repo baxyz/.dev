@@ -23,6 +23,10 @@
     {
       "name": "mozlz4",
       "path": "../mozlz4"
+    },
+    {
+      "name": "sqlite-reader",
+      "path": "../sqlite-reader"
     }
   ],
   "settings": {
