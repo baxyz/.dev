@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m ' *)",
+      "Bash(gh search *)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/zen-browser/desktop/main/src/zen/spaces/ZenSpaceIcons.mjs\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/zen-browser/desktop/dev/src/zen/spaces/ZenSpaceIcons.mjs\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/zen-browser/desktop/dev/src/zen/spaces/ZenSpaceCreation.mjs\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/mozilla-firefox/firefox/main/browser/components/profiles/SelectableProfile.sys.mjs\")",
+      "Bash(dpkg -l)",
+      "Bash(apt-cache search *)",
+      "Bash(apt-get download *)",
+      "Bash(mkdir -p /tmp/adwaita-extract)",
+      "Bash(dpkg-deb -x /workspaces/gnome-extensions/extensions/browser-hub/adwaita-icon-theme_48.1-1_all.deb .)",
+      "Bash(dpkg-deb -x /workspaces/.dev/adwaita-icon-theme_48.1-1_all.deb .)"
+    ]
+  }
+}
