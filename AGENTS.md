@@ -54,6 +54,13 @@ All repos follow [Conventional Commits](https://www.conventionalcommits.org/) wi
 | build | 📦️ | Build system / deps |
 | revert | ⏪️ | Revert |
 
+## Code Comments
+
+- Default to **no comment**. Add one only when the code alone can't carry the reason — a non-obvious constraint, a workaround for a specific real-world quirk, a precedence choice between two valid behaviors.
+- Not every function needs a "why" comment. A codebase where most functions have one reads as uniform/AI-generated to a reviewer, even when each comment is individually justified — that pattern itself is a signal worth avoiding, not just the comments' content.
+- Never narrate the fix's own history ("used to be broken", "now fixed", "this used to do X"). Comments describe current behavior/rationale only — the commit message and PR description are where history belongs.
+- When several sibling functions share the same kind of tricky reasoning, prefer one comment at the shared call site or the least-obvious function over repeating a comment (even reworded) on each one.
+
 ## This Repository (.dev)
 
 **Purpose:** Orchestrate the baxyz workspace — multi-root VS Code workspace, unified DevContainer, canonical agent rules, shared VS Code settings.
