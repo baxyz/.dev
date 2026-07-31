@@ -2,11 +2,9 @@
   "repos": [
     ".github",
     "baxyz.github.io",
-    ".trivial",
     "gnome-extensions",
     "repo-proxy",
-    "new-blog",
-    "zen-mods",
-    "mozlz4"
+    "mozlz4",
+    "sqlite-reader"
   ]
 }
