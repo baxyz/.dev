@@ -21,11 +21,24 @@ Repositories in this workspace:
 | [`.dev`](https://github.com/baxyz/.dev) | Orchestration workspace + unified DevContainer + canonical agent rules |
 | [`.github`](https://github.com/baxyz/.github) | Workspace-wide GitHub config (community files, templates) |
 | [`baxyz.github.io`](https://github.com/baxyz/baxyz.github.io) | GitHub Pages site |
-| [`.trivial`](https://github.com/baxyz/.trivial) | Personal utility scripts |
-| [`firefox-profiles`](https://github.com/baxyz/firefox-profiles) | GNOME extension — Firefox profile launcher |
-| [`repo-proxy`](https://github.com/baxyz/repo-proxy) | APT & YUM proxy for Linux packages |
-| [`new-blog`](https://github.com/baxyz/new-blog) | Personal website (berenger.arnaud.work) |
-| [`zen-mods`](https://github.com/baxyz/zen-mods) | Zen browser mods |
+| [`gnome-extensions`](https://github.com/baxyz/gnome-extensions) | Monorepo for GNOME Shell extensions |
+| [`repo-proxy`](https://github.com/baxyz/repo-proxy) | Multi-source APT/DEB repository proxy (Cloudflare Workers) |
+| [`mozlz4`](https://github.com/baxyz/mozlz4) | Encode/decode Mozilla's mozLz40 (Firefox/Zen Browser) format |
+| [`sqlite-reader`](https://github.com/baxyz/sqlite-reader) | Read-only SQLite3 binary parser |
+
+## Inheritance
+
+This is baxyz's own canonical `AGENTS.md` — there is no parent org above it. The
+file/tooling *shape* below (`CLAUDE.md`, `scopes.json`, `commit-convention.json`,
+`.claude/commands/commit.md`) is ported from
+[helpers4/.dev](https://github.com/helpers4/.dev)'s canonical setup. Deltas from that
+shape:
+- **License: MIT** (not LGPL-3.0-or-later) for `.dev` itself and most siblings; `gnome-extensions`,
+  `repo-proxy`, `mozlz4`, `sqlite-reader` carry their own per-repo license — the `auto-header`
+  feature's single global `license` setting is only an approximation across this mixed set,
+  not something this repo attempts to reconcile.
+- Personal single-maintainer account, no `governance`/`CI-CD`-style scopes — scopes stay close
+  to helpers4's naming (`devcontainer`, `workspace`, `scripts`, `agents`, `ci`, `docs`, `deps`).
 
 ## Commit Messages
 
