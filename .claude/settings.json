@@ -1,7 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git commit -m ' *)",
       "Bash(gh search *)",
       "Bash(curl -s \"https://raw.githubusercontent.com/zen-browser/desktop/main/src/zen/spaces/ZenSpaceIcons.mjs\")",
       "Bash(curl -s \"https://raw.githubusercontent.com/zen-browser/desktop/dev/src/zen/spaces/ZenSpaceIcons.mjs\")",
