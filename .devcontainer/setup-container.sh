@@ -4,9 +4,6 @@
 #
 # baxyz orchestrator — devcontainer setup
 # -----------------------------------------------------------------------------
-# For every sibling repo declared in $BAXYZ_REPOS, ensure it exists at
-# /workspaces/<repo>. If the bind-mount target is empty (Codespaces or
-# fresh machine), fall back to `git clone`.
 # pnpm install is handled by the package-auto-install feature (autoDiscover).
 # -----------------------------------------------------------------------------
 set -euo pipefail
@@ -18,14 +15,13 @@ ORG_URL="https://github.com/baxyz"
 
 for repo in $REPOS; do
   target="/workspaces/${repo}"
-  if [ -d "${target}/.git" ] || [ -f "${target}/package.json" ] || [ -n "$(ls -A "${target}" 2>/dev/null || true)" ]; then
+  if [ -n "$(ls -A "${target}" 2>/dev/null || true)" ]; then
     echo "✅ ${repo}: already present (bind-mounted)"
     continue
   fi
 
   url="${ORG_URL}/${repo}.git"
   echo "📥 ${repo}: missing — cloning from ${url}"
-  rm -rf "${target}" 2>/dev/null || true
   git clone "${url}" "${target}" || echo "⚠️  ${repo}: clone failed (continuing)"
 done
 
