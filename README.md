@@ -20,11 +20,10 @@ mkdir baxyz && cd baxyz
 gh repo clone baxyz/.dev
 gh repo clone baxyz/.github
 gh repo clone baxyz/baxyz.github.io
-gh repo clone baxyz/.trivial
-gh repo clone baxyz/firefox-profiles
+gh repo clone baxyz/gnome-extensions
 gh repo clone baxyz/repo-proxy
-gh repo clone baxyz/new-blog
-gh repo clone baxyz/zen-mods
+gh repo clone baxyz/mozlz4
+gh repo clone baxyz/sqlite-reader
 code .dev/baxyz.code-workspace
 ```
 

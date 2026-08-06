@@ -46,7 +46,6 @@
       "browser-hub/constants",
       "browser-hub/build",
       "browser-hub/tests",
-      "firefox-profiles",
       "tooling"
     ]
   }

@@ -67,6 +67,9 @@ All repos follow [Conventional Commits](https://www.conventionalcommits.org/) wi
 | build | 📦️ | Build system / deps |
 | revert | ⏪️ | Revert |
 
+This is the primary-emoji quick reference; `commit-convention.json` is the canonical
+machine-readable source and also lists alternative emoji per type (e.g. 🔒️ for a security fix).
+
 ## Code Comments
 
 - Default to **no comment**. Add one only when the code alone can't carry the reason — a non-obvious constraint, a workaround for a specific real-world quirk, a precedence choice between two valid behaviors.
