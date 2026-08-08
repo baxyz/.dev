@@ -56,7 +56,14 @@
     "ghcr.io/helpers4/devcontainer/package-auto-install:1": {
       "autoDiscover": true
     },
-    "ghcr.io/helpers4/devcontainer/vite-plus:1": {}
+    "ghcr.io/helpers4/devcontainer/vite-plus:1": {},
+    // ── Testing ──────────────────────────────────────────────────────────────
+    // browser-hub's donut-e2e.ts (pnpm test:e2e) launches a real Firefox via
+    // Playwright — only Firefox is needed, so Chromium/WebKit are skipped to
+    // keep the image smaller.
+    "ghcr.io/helpers4/devcontainer/playwright-dev:1": {
+      "browsers": "firefox"
+    }
   },
   "remoteUser": "node",
   "postCreateCommand": "bash .devcontainer/setup-container.sh"
