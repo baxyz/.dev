@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Runs a command inside the distrobox box from the host, in the same
+# directory as where this was invoked. `distrobox enter` otherwise lands in
+# /run/host/<path> (its own host-root passthrough) instead of the box's own
+# dedicated mount of that same path — cosmetic in practice (both are the
+# same read-write content) but this keeps paths native/consistent.
+# Usage: bin/in-devbox pnpm run status:all
+set -euo pipefail
+exec distrobox enter baxyz-devbox -- bash -lc 'cd "$0" && exec "$@"' "$PWD" "$@"
