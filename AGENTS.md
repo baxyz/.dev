@@ -6,7 +6,6 @@ Per-repo `AGENTS.md` files only add project-specific details on top of what is d
 ## ⛔ CRITICAL RESTRICTIONS
 
 - **NEVER execute `git push`** — The user pushes manually after review.
-- **NEVER execute `git commit` or `git add`** — The user stages and commits manually. Fix files, then stop.
 - **NEVER use GPT models** — Use Claude models only (claude-sonnet-4.x, Claude Opus 4.x+).
 - **Everything in English** — Code, comments, commits, documentation, logs, PR descriptions.
 
@@ -22,7 +21,6 @@ Repositories in this workspace:
 | [`.github`](https://github.com/baxyz/.github) | Workspace-wide GitHub config (community files, templates) |
 | [`baxyz.github.io`](https://github.com/baxyz/baxyz.github.io) | GitHub Pages site |
 | [`gnome-extensions`](https://github.com/baxyz/gnome-extensions) | Monorepo for GNOME Shell extensions |
-| [`repo-proxy`](https://github.com/baxyz/repo-proxy) | Multi-source APT/DEB repository proxy (Cloudflare Workers) |
 | [`mozlz4`](https://github.com/baxyz/mozlz4) | Encode/decode Mozilla's mozLz40 (Firefox/Zen Browser) format |
 | [`sqlite-reader`](https://github.com/baxyz/sqlite-reader) | Read-only SQLite3 binary parser |
 
@@ -33,12 +31,16 @@ file/tooling *shape* below (`CLAUDE.md`, `scopes.json`, `commit-convention.json`
 `.claude/commands/commit.md`) is ported from
 [helpers4/.dev](https://github.com/helpers4/.dev)'s canonical setup. Deltas from that
 shape:
-- **License: MIT** (not LGPL-3.0-or-later) for `.dev` itself and most siblings; `gnome-extensions`,
-  `repo-proxy`, `mozlz4`, `sqlite-reader` carry their own per-repo license — the `auto-header`
-  feature's single global `license` setting is only an approximation across this mixed set,
-  not something this repo attempts to reconcile.
+- **Default license is AGPL-3.0-only** — `.dev`, `.github`, `gnome-extensions`, and
+  `baxyz.github.io` all use it; `mozlz4` and `sqlite-reader` are the deliberate exceptions, kept
+  LGPL-3.0-or-later since they're small libraries meant to be embedded/imported freely. Any new
+  repo defaults to AGPL-3.0-only unless there's a specific reason to relax it, as for the two
+  libraries above.
 - Personal single-maintainer account, no `governance`/`CI-CD`-style scopes — scopes stay close
   to helpers4's naming (`devcontainer`, `workspace`, `scripts`, `agents`, `ci`, `docs`, `deps`).
+- Every repo keeps a root-level `scopes.json` — the machine-readable scope list `/commit` and
+  `commit-convention.json` read. A repo's `.vscode/settings.json` may mirror the same list for
+  the editor's own Conventional Commits extension UI, but `scopes.json` is the source of truth.
 
 ## Commit Messages
 

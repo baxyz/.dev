@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "baxyz orchestrator — shared workspace, devcontainer, AI guidance, and cross-repo scripts.",
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "type": "module",
   "scripts": {
     "install:all": "node scripts/run-each.mjs install",

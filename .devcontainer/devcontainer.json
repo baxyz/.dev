@@ -12,13 +12,12 @@
     "source=${localWorkspaceFolder}/../.github,target=/workspaces/.github,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../baxyz.github.io,target=/workspaces/baxyz.github.io,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../gnome-extensions,target=/workspaces/gnome-extensions,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../repo-proxy,target=/workspaces/repo-proxy,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../mozlz4,target=/workspaces/mozlz4,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../sqlite-reader,target=/workspaces/sqlite-reader,type=bind,consistency=cached"
   ],
   "containerEnv": {
     "BAXYZ_ORG": "baxyz",
-    "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions repo-proxy mozlz4 sqlite-reader",
+    "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions mozlz4 sqlite-reader",
     "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}"
   },
   // GH_TOKEN: forwards a baxyz-scoped host token into the container so gh
@@ -40,7 +39,7 @@
     "ghcr.io/helpers4/devcontainer/github-dev:1.0.5": {},
     "ghcr.io/helpers4/devcontainer/auto-header:1": {
       "projectName": "baxyz",
-      "license": "LGPL-3.0-or-later"
+      "license": "AGPL-3.0-only"
     },
     // ── AI ───────────────────────────────────────────────────────────────────
     "ghcr.io/helpers4/devcontainer/copilot-dev:1": {},

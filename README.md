@@ -21,7 +21,6 @@ gh repo clone baxyz/.dev
 gh repo clone baxyz/.github
 gh repo clone baxyz/baxyz.github.io
 gh repo clone baxyz/gnome-extensions
-gh repo clone baxyz/repo-proxy
 gh repo clone baxyz/mozlz4
 gh repo clone baxyz/sqlite-reader
 code .dev/baxyz.code-workspace
@@ -36,6 +35,7 @@ pnpm run status:all   # git status in every repo
 pnpm run pull:all     # git pull --rebase in every repo
 pnpm run branch:all   # current branch in every repo
 pnpm run build:all    # pnpm build in every repo that has it
+pnpm run repos:sync   # report active baxyz GitHub repos missing from repos.json
 ```
 
 ## Host setup

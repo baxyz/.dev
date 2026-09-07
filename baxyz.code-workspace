@@ -17,10 +17,6 @@
       "path": "../gnome-extensions"
     },
     {
-      "name": "repo-proxy",
-      "path": "../repo-proxy"
-    },
-    {
       "name": "mozlz4",
       "path": "../mozlz4"
     },
@@ -34,19 +30,11 @@
     "conventionalCommits.scopes": [
       "devcontainer",
       "workspace",
-      "mozlz4",
       "scripts",
       "agents",
       "ci",
       "docs",
-      "deps",
-      "browser-hub",
-      "browser-hub/extension",
-      "browser-hub/menu",
-      "browser-hub/constants",
-      "browser-hub/build",
-      "browser-hub/tests",
-      "tooling"
+      "deps"
     ]
   }
 }

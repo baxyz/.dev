@@ -14,7 +14,6 @@ All repos are bind-mounted at `/workspaces/<name>` and open together in
 | `/workspaces/.github` | `.github` | Workspace-wide GitHub config |
 | `/workspaces/baxyz.github.io` | `baxyz.github.io` | GitHub Pages site |
 | `/workspaces/gnome-extensions` | `gnome-extensions` | Monorepo for GNOME Shell extensions |
-| `/workspaces/repo-proxy` | `repo-proxy` | APT/DEB repository proxy (Cloudflare Workers) |
 | `/workspaces/mozlz4` | `mozlz4` | mozLz40 encode/decode library |
 | `/workspaces/sqlite-reader` | `sqlite-reader` | Read-only SQLite3 binary parser |
 
@@ -37,13 +36,14 @@ pnpm run install:all  # pnpm install in every repo
 Never invent a scope that isn't listed. Full type→emoji mapping: `/workspaces/.dev/commit-convention.json`.
 Use `/commit` (Claude Code slash command) to auto-generate a message from staged changes.
 
-**License header**: most repos are LGPL-3.0-or-later, but `.dev` itself and some siblings are
-MIT — check the target repo's own `LICENSE`/`AGENTS.md` before assuming LGPL. See AGENTS.md's
-Inheritance section for the mixed-license context.
+**License header**: default is AGPL-3.0-only, but `mozlz4` and `sqlite-reader` are the deliberate
+LGPL-3.0-or-later exceptions — check the target repo's own `LICENSE`/`AGENTS.md` before assuming
+either. See AGENTS.md's Inheritance section for the license policy.
 
-**Adding a sibling repo**: update `repos.json`, `baxyz.code-workspace`, and
-`.devcontainer/devcontainer.json` (mounts + `BAXYZ_REPOS`) together — these three must stay in
-sync or `setup-container.sh`'s clone-fallback and the devcontainer mounts will disagree.
+**Adding a sibling repo**: update `repos.json`, `baxyz.code-workspace`,
+`.devcontainer/devcontainer.json` (mounts + `BAXYZ_REPOS`), and `.distrobox/distrobox.ini`
+together — these four must stay in sync or `setup-container.sh`'s clone-fallback and the
+devcontainer/distrobox mounts will disagree.
 
 ## AI persistence
 

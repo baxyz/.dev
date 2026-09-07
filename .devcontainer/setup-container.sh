@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This file is part of baxyz/.dev.
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: AGPL-3.0-only
 #
 # baxyz orchestrator — devcontainer setup
 # -----------------------------------------------------------------------------
@@ -10,7 +10,7 @@ set -euo pipefail
 
 echo "🎼 Setting up baxyz orchestrator…"
 
-REPOS="${BAXYZ_REPOS:-.github baxyz.github.io gnome-extensions repo-proxy mozlz4 sqlite-reader}"
+REPOS="${BAXYZ_REPOS:-.github baxyz.github.io gnome-extensions mozlz4 sqlite-reader}"
 ORG_URL="https://github.com/baxyz"
 
 for repo in $REPOS; do
