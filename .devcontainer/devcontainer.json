@@ -3,17 +3,19 @@
   "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
   // Orchestrator devcontainer for the baxyz personal workspace.
   //
-  // Bind-mounts every active baxyz repo from the host (../<name>) into
-  // /workspaces/<name>. Falls back to `gh repo clone` inside the container
-  // if a sibling repo is missing on host (e.g. GitHub Codespaces).
+  // Named volumes for every active baxyz repo, cloned into place by
+  // setup-container.sh's postCreateCommand on first run (fresh volume) —
+  // never re-clones over existing work. Works identically on GitHub
+  // Codespaces and local Docker Desktop/WSL2, unlike the previous
+  // host-bind-mount setup.
   "workspaceFolder": "/workspaces/.dev",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/.dev,type=bind,consistency=cached",
   "mounts": [
-    "source=${localWorkspaceFolder}/../.github,target=/workspaces/.github,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../baxyz.github.io,target=/workspaces/baxyz.github.io,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../gnome-extensions,target=/workspaces/gnome-extensions,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../mozlz4,target=/workspaces/mozlz4,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../sqlite-reader,target=/workspaces/sqlite-reader,type=bind,consistency=cached"
+    "source=baxyz-repo-github,target=/workspaces/.github,type=volume",
+    "source=baxyz-repo-baxyz-github-io,target=/workspaces/baxyz.github.io,type=volume",
+    "source=baxyz-repo-gnome-extensions,target=/workspaces/gnome-extensions,type=volume",
+    "source=baxyz-repo-mozlz4,target=/workspaces/mozlz4,type=volume",
+    "source=baxyz-repo-sqlite-reader,target=/workspaces/sqlite-reader,type=volume"
   ],
   "containerEnv": {
     "BAXYZ_ORG": "baxyz",
