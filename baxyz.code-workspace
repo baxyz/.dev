@@ -28,13 +28,13 @@
   "settings": {
     "conventionalCommits.gitmoji": true,
     "conventionalCommits.scopes": [
-      "devcontainer",
-      "workspace",
-      "scripts",
-      "agents",
+      "ai",
       "ci",
+      "deps",
+      "devcontainer",
       "docs",
-      "deps"
+      "scripts",
+      "workspace"
     ]
   }
 }
