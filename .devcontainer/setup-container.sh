@@ -16,7 +16,7 @@ ORG_URL="https://github.com/baxyz"
 for repo in $REPOS; do
   target="/workspaces/${repo}"
   if [ -n "$(ls -A "${target}" 2>/dev/null || true)" ]; then
-    echo "✅ ${repo}: already present (bind-mounted)"
+    echo "✅ ${repo}: already present (volume)"
     continue
   fi
 
@@ -27,4 +27,3 @@ done
 
 echo "🎉 baxyz orchestrator ready."
 echo "   Open baxyz.code-workspace to load every repo at once."
-echo "   Try: pnpm run status:all | pull:all | branch:all"
