@@ -21,10 +21,9 @@ on the host, node/pnpm/git-lfs running in a separate box.
 ## Workspace note
 
 The `volume=` line mirrors the sibling-repo list from
-[`baxyz.code-workspace`](../baxyz.code-workspace) and `repos.json`. Per `CLAUDE.md`'s "Adding a
-sibling repo" gotcha: if you add/remove a repo, update `repos.json`, `baxyz.code-workspace`,
-`.devcontainer/devcontainer.json` **and** `.distrobox/distrobox.ini` together, or the mounts will
-drift out of sync.
+[`baxyz.code-workspace`](../baxyz.code-workspace). Per `CLAUDE.md`'s "Adding a sibling repo"
+gotcha: if you add/remove a repo, update `baxyz.code-workspace`, `.devcontainer/devcontainer.json`
+**and** `.distrobox/distrobox.ini` together, or the mounts will drift out of sync.
 
 ## Create the box
 
@@ -57,7 +56,7 @@ AI agent bridge (host) → box, from `.dev/` (or any mounted repo):
 
 ```bash
 bin/in-devbox pwd                  # prints the real host path, not /run/host/<path>
-bin/in-devbox pnpm run status:all
+bin/in-devbox git status -sb
 ```
 
 ## Known limitation: `/run/host` is not a security boundary
@@ -120,8 +119,8 @@ model (isolated box home, agent on the host):
   `home=`, which already persists natively across container restarts.
 - `auto-header`, `peon-ping`: these are repo scripts/tools, not environment needs — keep them as
   normal `pnpm` scripts, independent of the box.
-- `package-auto-install`: replace with an explicit `bin/in-devbox pnpm run install:all` call after
-  creation (the script already exists in this repo).
+- `package-auto-install`: replace with an explicit `bin/in-devbox pnpm install` in each sibling
+  repo after creation — there's no cross-repo install-everything script anymore.
 
 What needs to be explicitly ported (see the "Optional" section of the `.ini`): `github-dev` (gh
 cli), `playwright-dev` (browsers), `docker-outside-of-docker` (docker socket) — only if actually

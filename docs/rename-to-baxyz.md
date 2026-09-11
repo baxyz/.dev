@@ -21,12 +21,9 @@ folder rename breaks any running bind mount.
      `workspaceMount` target `/workspaces/.dev` → `/workspaces/baxyz`.
    - `baxyz.code-workspace`: the `{"name": ".dev", "path": "."}` folder entry
      → `{"name": "baxyz", "path": "."}`.
-   - `scripts/git-each.mjs`: hardcoded `".dev"` label/dir (`const repos = [".dev", ...readRepos()]`)
-     → `"baxyz"`.
    - `AGENTS.md`: workspace table row and the `github.com/baxyz/.dev` link.
    - `CLAUDE.md`: workspace layout table row (`/workspaces/.dev`).
    - `README.md`: quick-start clone command and `code .dev/baxyz.code-workspace`.
-   - `package.json`: `name` field (`@baxyz/dev` → e.g. `@baxyz/baxyz`).
    - `.distrobox/distrobox.ini` and `.distrobox/README.md`: prose mentions of
      `.dev` (the `${PWD}`-relative mounts themselves need no change).
 5. **Commit and push** from the renamed repo.

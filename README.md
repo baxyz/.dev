@@ -6,11 +6,9 @@ Dev workspace orchestrator for the baxyz personal GitHub account.
 
 | File / folder | Purpose |
 | --- | --- |
-| `.devcontainer/` | Unified DevContainer (mounts all sibling repos) |
+| `.devcontainer/` | Unified DevContainer (named volumes for all sibling repos) |
 | `.vscode/settings.json` | Shared editor settings |
-| `scripts/` | Cross-repo helpers (`git-each`, `run-each`) |
 | `baxyz.code-workspace` | Multi-root VS Code workspace |
-| `repos.json` | Source of truth for sibling repo list |
 | `AGENTS.md` | Canonical AI / agent rules for all baxyz repos |
 
 ## Quick start
@@ -26,17 +24,9 @@ gh repo clone baxyz/sqlite-reader
 code .dev/baxyz.code-workspace
 ```
 
-Or open `.dev` in VS Code and **Reopen in Container** — missing repos are cloned automatically.
-
-## Cross-repo scripts
-
-```bash
-pnpm run status:all   # git status in every repo
-pnpm run pull:all     # git pull --rebase in every repo
-pnpm run branch:all   # current branch in every repo
-pnpm run build:all    # pnpm build in every repo that has it
-pnpm run repos:sync   # report active baxyz GitHub repos missing from repos.json
-```
+Or open `.dev` in VS Code and **Reopen in Container** — every sibling repo is cloned into its own
+named volume automatically on first run (works the same way on GitHub Codespaces, no host
+pre-clone needed).
 
 ## Host setup
 
