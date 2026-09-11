@@ -54,9 +54,13 @@ shape:
   repo defaults to AGPL-3.0-only unless there's a specific reason to relax it, as for the two
   libraries above.
 - Personal single-maintainer account. Scopes use the consolidated cross-org core set:
-  `ai`, `ci`, `deps`, `devcontainer`, `docs`, `scripts`, `workspace` — `ai` replaces the
+  `ai`, `ci`, `deps`, `devcontainer`, `docs`, `workspace` — `ai` replaces the
   earlier `agents` name (consolidated with `roots`/tuxery's `ai` and helpers4's `governance`,
   which all designated the same thing: AI/agent guidance changes).
+- Sibling-repo orchestration is the thin `devcontainer`-only pattern (named volumes +
+  `setup-container.sh`'s clone-if-empty loop, sourced from `BAXYZ_REPOS`) — no
+  `repos.json`/`scripts/`/`package.json` layer anymore, matching `brig-id/roots` and
+  `tuxery/.dev`. No `scripts` scope as a result.
 - Every repo keeps a root-level `scopes.json` — the machine-readable scope list `/commit` and
   `commit-convention.json` read. A repo's `.vscode/settings.json` may mirror the same list for
   the editor's own Conventional Commits extension UI, but `scopes.json` is the source of truth.
@@ -107,26 +111,24 @@ machine-readable source and also lists alternative emoji per type (e.g. 🔒️ 
 ```
 .dev/
 ├── .devcontainer/
-│   ├── devcontainer.json       # Cross-repo dev environment
-│   └── setup-container.sh      # postCreateCommand: clone-fallback + install
+│   ├── devcontainer.json       # Cross-repo dev environment (named volumes)
+│   └── setup-container.sh      # postCreateCommand: clone-into-volume-if-empty
 ├── .vscode/
 │   └── settings.json           # Repo-specific overrides (scopes)
-├── scripts/
-│   ├── repos.mjs               # Source of truth (reads repos.json)
-│   ├── run-each.mjs            # Run a pnpm script in every sibling repo
-│   └── git-each.mjs            # Run a git command in every sibling repo
+├── .distrobox/                 # Alternative to the devcontainer (host bind-mounts)
 ├── baxyz.code-workspace        # Multi-root workspace + shared settings
-├── repos.json                  # List of sibling repos
-├── package.json                # Cross-repo orchestration scripts
 ├── AGENTS.md                   # This file (canonical workspace-wide rules)
 ├── README.md
 └── LICENSE                     # MIT
 ```
 
-Sibling repos live **next to** this folder on the host. The devcontainer bind-mounts each of them at `/workspaces/<name>`.
+Sibling repos live **next to** this folder on the host, but the devcontainer no longer bind-mounts
+them — each is cloned into its own named Docker volume by `setup-container.sh` on first run, so
+the container works identically on GitHub Codespaces and locally. `BAXYZ_REPOS` in
+`devcontainer.json`'s `containerEnv` is the source of truth for the sibling repo list.
 
 ### What NOT to do here
 
 - Do **not** add runtime code, packages, or build outputs. This repo is configuration only.
 - Do **not** duplicate per-repo agent rules — they live in their own `AGENTS.md`.
-- When adding a new sibling repo, update `repos.json`, `baxyz.code-workspace`, and `.devcontainer/devcontainer.json` together.
+- When adding a new sibling repo, update `baxyz.code-workspace` and `.devcontainer/devcontainer.json` (`mounts` + `BAXYZ_REPOS`) together.

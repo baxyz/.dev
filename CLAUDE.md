@@ -5,30 +5,20 @@ Full canonical rules (commit format, restrictions, license) live in
 
 ## Workspace layout
 
-All repos are bind-mounted at `/workspaces/<name>` and open together in
-`baxyz.code-workspace`:
+Every repo is cloned into its own named Docker volume at `/workspaces/<name>` by
+`setup-container.sh` on first run, and they open together in `baxyz.code-workspace`:
 
 | Path | Repo | Role |
 | ---- | ---- | ---- |
-| `/workspaces/.dev` | `.dev` | Orchestration — canonical AGENTS.md, devcontainer, scripts |
+| `/workspaces/.dev` | `.dev` | Orchestration — canonical AGENTS.md, devcontainer |
 | `/workspaces/.github` | `.github` | Workspace-wide GitHub config |
 | `/workspaces/baxyz.github.io` | `baxyz.github.io` | GitHub Pages site |
 | `/workspaces/gnome-extensions` | `gnome-extensions` | Monorepo for GNOME Shell extensions |
 | `/workspaces/mozlz4` | `mozlz4` | mozLz40 encode/decode library |
 | `/workspaces/sqlite-reader` | `sqlite-reader` | Read-only SQLite3 binary parser |
 
-## Cross-repo commands (run from `/workspaces/.dev`)
-
-```bash
-pnpm run status:all   # git status -sb in every repo
-pnpm run fetch:all    # git fetch --all --prune in every repo
-pnpm run pull:all     # git pull --rebase --autostash in every repo
-pnpm run branch:all   # show active branch in every repo
-pnpm run build:all    # pnpm build in every repo
-pnpm run test:all     # pnpm test in every repo
-pnpm run lint:all     # pnpm lint in every repo
-pnpm run install:all  # pnpm install in every repo
-```
+There's no cross-repo script runner anymore — run `git`/`pnpm` commands directly in each repo, or
+loop over `$BAXYZ_REPOS` (set in `containerEnv`) from a shell one-liner if needed across all of them.
 
 ## Common gotchas
 
@@ -40,10 +30,10 @@ Use `/commit` (Claude Code slash command) to auto-generate a message from staged
 LGPL-3.0-or-later exceptions — check the target repo's own `LICENSE`/`AGENTS.md` before assuming
 either. See AGENTS.md's Inheritance section for the license policy.
 
-**Adding a sibling repo**: update `repos.json`, `baxyz.code-workspace`,
-`.devcontainer/devcontainer.json` (mounts + `BAXYZ_REPOS`), and `.distrobox/distrobox.ini`
-together — these four must stay in sync or `setup-container.sh`'s clone-fallback and the
-devcontainer/distrobox mounts will disagree.
+**Adding a sibling repo**: update `baxyz.code-workspace`, `.devcontainer/devcontainer.json`
+(`mounts` + `BAXYZ_REPOS`), and `.distrobox/distrobox.ini` together — these three must stay in
+sync or `setup-container.sh`'s clone-if-empty loop and the devcontainer/distrobox mounts will
+disagree.
 
 ## AI persistence
 
