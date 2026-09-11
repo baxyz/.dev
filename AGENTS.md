@@ -3,11 +3,28 @@
 This is the **canonical, workspace-wide** agent guidance for baxyz personal projects.
 Per-repo `AGENTS.md` files only add project-specific details on top of what is defined here.
 
-## ⛔ CRITICAL RESTRICTIONS
+## Language
 
-- **NEVER execute `git push`** — The user pushes manually after review.
-- **NEVER use GPT models** — Use Claude models only (claude-sonnet-4.x, Claude Opus 4.x+).
-- **Everything in English** — Code, comments, commits, documentation, logs, PR descriptions.
+**Everything in English** — code, comments, commits, documentation, logs, PR descriptions.
+
+## Git Workflow
+
+Default policy — nuanced, not a hard rule: ask if a specific task calls for
+something different, but absent other instructions:
+
+1. **Branch** — work on a branch, never directly on `main`. Group related
+   changes on the same branch instead of opening a new one per small change.
+2. **Commit** — one commit per subject, Conventional Commits format mandatory
+   (see Commit Messages below).
+3. **Push** — only once it looks safe to do so; a human review of the diff
+   first is recommended for anything non-trivial. Ask if unsure.
+4. **Pull Request** — open one once pushed.
+5. **Merge** — never merge. Merging is always a human decision.
+
+A narrow, temporary carve-out (e.g. "push straight to `main` for this one fix")
+may be granted in conversation for a specific piece of work — treat it as
+scoped to exactly what was said, never as a standing precedent to reuse
+elsewhere or later without asking again.
 
 ## Workspace Context
 
@@ -36,8 +53,10 @@ shape:
   LGPL-3.0-or-later since they're small libraries meant to be embedded/imported freely. Any new
   repo defaults to AGPL-3.0-only unless there's a specific reason to relax it, as for the two
   libraries above.
-- Personal single-maintainer account, no `governance`/`CI-CD`-style scopes — scopes stay close
-  to helpers4's naming (`devcontainer`, `workspace`, `scripts`, `agents`, `ci`, `docs`, `deps`).
+- Personal single-maintainer account. Scopes use the consolidated cross-org core set:
+  `ai`, `ci`, `deps`, `devcontainer`, `docs`, `scripts`, `workspace` — `ai` replaces the
+  earlier `agents` name (consolidated with `roots`/tuxery's `ai` and helpers4's `governance`,
+  which all designated the same thing: AI/agent guidance changes).
 - Every repo keeps a root-level `scopes.json` — the machine-readable scope list `/commit` and
   `commit-convention.json` read. A repo's `.vscode/settings.json` may mirror the same list for
   the editor's own Conventional Commits extension UI, but `scopes.json` is the source of truth.

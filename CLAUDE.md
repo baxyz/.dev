@@ -47,5 +47,7 @@ devcontainer/distrobox mounts will disagree.
 
 ## AI persistence
 
-`~/.claude` is bind-mounted from the host and symlinked at every container start by
-`claude-dev`. Memory, credentials, and settings survive all rebuilds.
+`~/.claude` is bind-mounted from a **per-devcontainer** volume and symlinked at
+every container start by `claude-dev` — isolated to this project, not shared
+with any other org's devcontainer. Memory, credentials, and settings survive
+rebuilds of this same devcontainer.
