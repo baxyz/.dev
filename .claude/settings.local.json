@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm vitest *)",
+      "Bash(pnpm test *)",
+      "Bash(pnpm build *)",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm format *)",
+      "Bash(pnpm format:check)",
+      "Bash(pnpm check *)",
+      "Bash(tsx --import ./scripts/shims/register.mjs -e ' *)",
+      "Bash(npx tsx *)",
+      "Bash(cat > *)",
+      "Bash(cp vite.config.ts /tmp/vite.config.ts.bak)",
+      "Bash(npm view *)",
+      "Bash(tar xzf *)",
+      "Bash(gh api *)",
+      "WebSearch",
+      "WebFetch(domain:searchfox.org)",
+      "Bash(curl -s \"https://searchfox.org/mozilla-central/search?q=%22list-profiles%22&redirect=false\" -H \"Accept: application/json\")",
+      "Bash(curl -sL \"https://searchfox.org/mozilla-central/search?q=%22list-profiles%22&redirect=false\" -H \"Accept: application/json\")",
+      "Bash(curl -sL \"https://searchfox.org/mozilla-central/search?q=listprofiles&redirect=false\" -H \"Accept: application/json\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -sL \"https://searchfox.org/mozilla-central/search?q=CreateProfile&redirect=false\" -H \"Accept: application/json\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(ls /snap)",
+      "Bash(flatpak list *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "/tmp/claude-1000/-workspaces--dev",
+      "/tmp"
+    ]
+  }
+}

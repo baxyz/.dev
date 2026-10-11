@@ -30,7 +30,7 @@
   },
   "features": {
     // ── Infrastructure ───────────────────────────────────────────────────────
-    "ghcr.io/helpers4/devcontainer/shell-history-per-project:1": {},
+    "ghcr.io/helpers4/devcontainer/shell-history:1": {},
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "moby": false
     },
@@ -38,21 +38,21 @@
     "ghcr.io/devcontainers/features/git-lfs:1": {},
     "ghcr.io/helpers4/devcontainer/git-absorb:1": {},
     "ghcr.io/helpers4/devcontainer/essential-dev:1": {},
-    "ghcr.io/helpers4/devcontainer/github-dev:1.0.5": {},
+    "ghcr.io/helpers4/devcontainer/github-dev:1": {},
     "ghcr.io/helpers4/devcontainer/auto-header:1": {
       "projectName": "baxyz",
       "license": "AGPL-3.0-only"
     },
     // ── AI ───────────────────────────────────────────────────────────────────
     "ghcr.io/helpers4/devcontainer/copilot-dev:1": {},
-    "ghcr.io/helpers4/devcontainer/claude-dev:1.0.3": {},
-    "ghcr.io/helpers4/devcontainer/mistral-dev:1.0.1": {},
+    "ghcr.io/helpers4/devcontainer/claude-dev:1": {},
+    "ghcr.io/helpers4/devcontainer/mistral-dev:1": {},
     "ghcr.io/helpers4/devcontainer/peon-ping:1": {
       "packsLang": "fr"
     },
     // ── JavaScript ───────────────────────────────────────────────────────────
     "ghcr.io/helpers4/devcontainer/typescript-dev:1": {},
-    "ghcr.io/helpers4/devcontainer/pnpm-store:1.0.7": {},
+    "ghcr.io/helpers4/devcontainer/pnpm-store:1": {},
     "ghcr.io/helpers4/devcontainer/nub:1": {},
     "ghcr.io/helpers4/devcontainer/package-auto-install:1": {
       "autoDiscover": true
