@@ -79,6 +79,15 @@
         "ghcr.io/helpers4/devcontainer/helpers4-common:1"
       ]
     },
+    "ghcr.io/helpers4/devcontainer/org-workspace": {
+      "version": "1.0.1",
+      "resolved": "ghcr.io/helpers4/devcontainer/org-workspace@sha256:1fa9f2a3a0357cd53beff45bad54d2ec4b6a2bcfb27ef934d49fefce68365600",
+      "integrity": "sha256:1fa9f2a3a0357cd53beff45bad54d2ec4b6a2bcfb27ef934d49fefce68365600",
+      "dependsOn": [
+        "ghcr.io/helpers4/devcontainer/helpers4-common:1",
+        "ghcr.io/helpers4/devcontainer/github-dev:1"
+      ]
+    },
     "ghcr.io/helpers4/devcontainer/package-auto-install:1": {
       "version": "1.2.3",
       "resolved": "ghcr.io/helpers4/devcontainer/package-auto-install@sha256:11bf1e75e89cc231c309230164c3c97e79f93ec620a1bca2b60ff66545012a01",

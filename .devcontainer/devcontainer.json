@@ -35,6 +35,9 @@
       "moby": false
     },
     // ── Dev environment ──────────────────────────────────────────────────────
+    "ghcr.io/helpers4/devcontainer/org-workspace": {
+      "autoDiscover": "public,private,internal,fork"
+    },
     "ghcr.io/devcontainers/features/git-lfs:1": {},
     "ghcr.io/helpers4/devcontainer/git-absorb:1": {},
     "ghcr.io/helpers4/devcontainer/essential-dev:1": {},
