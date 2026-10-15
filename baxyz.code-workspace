@@ -1,160 +1,60 @@
 {
 	"folders": [
 		{
-			"name": ".dev",
+			"name": "🌍 .dev",
 			"path": "."
 		},
 		{
-			"name": ".github",
+			"name": "🌍 .github",
 			"path": "../.github"
 		},
 		{
-			"name": "baxyz.github.io",
-			"path": "../baxyz.github.io"
-		},
-		{
-			"name": "gnome-extensions",
-			"path": "../gnome-extensions"
-		},
-		{
-			"name": "mozlz4",
-			"path": "../mozlz4"
-		},
-		{
-			"name": "sqlite-reader",
-			"path": "../sqlite-reader"
-		},
-		{
+			"name": "🔒 .trivial",
 			"path": "../.trivial"
 		},
 		{
-			"path": "../Sailfish-Pathfinder"
+			"name": "🌍 gnome-extensions",
+			"path": "../gnome-extensions"
 		},
 		{
-			"path": "../Script-the-web"
+			"name": "🌍 mozlz4",
+			"path": "../mozlz4"
 		},
 		{
-			"path": "../auto-learn"
+			"name": "🌍 sqlite-reader",
+			"path": "../sqlite-reader"
 		},
 		{
+			"name": "🌍 close-bookmarked-tabs",
 			"path": "../close-bookmarked-tabs"
 		},
 		{
-			"path": "../collection-parser"
-		},
-		{
-			"path": "../feature-today"
-		},
-		{
-			"path": "../js-libraries"
-		},
-		{
-			"path": "../maskerade"
-		},
-		{
-			"path": "../new-blog"
-		},
-		{
-			"path": "../php-git-pull"
-		},
-		{
-			"path": "../prototype"
-		},
-		{
-			"path": "../settings-intellij"
-		},
-		{
-			"path": "../site-berenger"
-		},
-		{
-			"path": "../site-fr-496"
-		},
-		{
-			"path": "../site-fr-ejdr"
-		},
-		{
-			"path": "../site-fr-lab28"
-		},
-		{
-			"path": "../site-tk-c0d3"
-		},
-		{
-			"path": "../site-xyz-arnaud"
-		},
-		{
-			"path": "../test-auto-completion"
-		},
-		{
-			"path": "../test-datadog"
-		},
-		{
-			"path": "../test-hetchr"
-		},
-		{
-			"path": "../test-ngx-avatars"
-		},
-		{
-			"path": "../whisperfish-icon-generator"
-		},
-		{
-			"path": "../zen-mods"
-		},
-		{
-			"path": "../BarWal"
-		},
-		{
-			"path": "../Tiling-Assistant"
-		},
-		{
-			"path": "../cli"
-		},
-		{
+			"name": "🔀 conference-hall",
 			"path": "../conference-hall"
 		},
 		{
+			"name": "🔀 deepr",
 			"path": "../deepr"
 		},
 		{
+			"name": "🔀 devcontainers.github.io",
 			"path": "../devcontainers.github.io"
 		},
 		{
-			"path": "../edit-in-place"
+			"name": "🔒 site-xyz-arnaud",
+			"path": "../site-xyz-arnaud"
 		},
 		{
-			"path": "../experiment"
+			"name": "🌍 zen-mods",
+			"path": "../zen-mods"
 		},
 		{
-			"path": "../harbour-noson"
+			"name": "🔒 site-dev-baxyz",
+			"path": "../site-dev-baxyz"
 		},
 		{
-			"path": "../harvester"
-		},
-		{
-			"path": "../helpers4-doc"
-		},
-		{
-			"path": "../helpers4.github.io"
-		},
-		{
-			"path": "../is-a-dev-register"
-		},
-		{
-			"path": "../ngx-avatars"
-		},
-		{
-			"path": "../radashi"
-		},
-		{
-			"path": "../react-native-share-extension"
-		},
-		{
-			"path": "../site-berenger-theme"
-		},
-		{
-			"path": "../tabliss"
-		},
-		{
-			"path": "../wslu"
+			"name": "🔒 site-work-arnaud-berenger",
+			"path": "../site-work-arnaud-berenger"
 		}
 	],
 	"settings": {
