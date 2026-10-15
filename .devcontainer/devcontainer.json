@@ -1,6 +1,6 @@
 {
   "name": "baxyz",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:26",
   // Orchestrator devcontainer for the baxyz personal workspace.
   //
   // Named volumes for every active baxyz repo, cloned into place by
@@ -10,13 +10,14 @@
   // host-bind-mount setup.
   "workspaceFolder": "/workspaces/.dev",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/.dev,type=bind,consistency=cached",
-  "mounts": [
-    "source=baxyz-repo-github,target=/workspaces/.github,type=volume",
-    "source=baxyz-repo-baxyz-github-io,target=/workspaces/baxyz.github.io,type=volume",
-    "source=baxyz-repo-gnome-extensions,target=/workspaces/gnome-extensions,type=volume",
-    "source=baxyz-repo-mozlz4,target=/workspaces/mozlz4,type=volume",
-    "source=baxyz-repo-sqlite-reader,target=/workspaces/sqlite-reader,type=volume"
-  ],
+  "mounts": [],
+  // Dev servers of the site repos (Astro): servers must listen on 0.0.0.0 (server.host: true)
+  // so these forwarded ports are reachable from the host browser.
+  "forwardPorts": [4321, 4322],
+  "portsAttributes": {
+    "4321": { "label": "site-work-arnaud-berenger", "onAutoForward": "notify" },
+    "4322": { "label": "site-dev-baxyz", "onAutoForward": "notify" }
+  },
   "containerEnv": {
     "BAXYZ_ORG": "baxyz",
     "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions mozlz4 sqlite-reader",
@@ -36,7 +37,9 @@
     },
     // ── Dev environment ──────────────────────────────────────────────────────
     "ghcr.io/helpers4/devcontainer/org-workspace": {
-      "autoDiscover": "public,private,internal,fork"
+      "autoDiscover": "public,private,internal,fork",
+      "generateCodeWorkspace": true
+
     },
     "ghcr.io/devcontainers/features/git-lfs:1": {},
     "ghcr.io/helpers4/devcontainer/git-absorb:1": {},
@@ -50,9 +53,7 @@
     "ghcr.io/helpers4/devcontainer/copilot-dev:1": {},
     "ghcr.io/helpers4/devcontainer/claude-dev:1": {},
     "ghcr.io/helpers4/devcontainer/mistral-dev:1": {},
-    "ghcr.io/helpers4/devcontainer/peon-ping:1": {
-      "packsLang": "fr"
-    },
+    "ghcr.io/helpers4/devcontainer/cline-dev:1": {},
     // ── JavaScript ───────────────────────────────────────────────────────────
     "ghcr.io/helpers4/devcontainer/typescript-dev:1": {},
     "ghcr.io/helpers4/devcontainer/pnpm-store:1": {},
