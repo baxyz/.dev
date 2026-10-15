@@ -31,6 +31,14 @@
         "ghcr.io/helpers4/devcontainer/helpers4-common:1"
       ]
     },
+    "ghcr.io/helpers4/devcontainer/cline-dev:1": {
+      "version": "1.1.0",
+      "resolved": "ghcr.io/helpers4/devcontainer/cline-dev@sha256:d83d87eca9bbef8b86ffd6e95ab240de39b6c3055beca391f2d8e612da1d933b",
+      "integrity": "sha256:d83d87eca9bbef8b86ffd6e95ab240de39b6c3055beca391f2d8e612da1d933b",
+      "dependsOn": [
+        "ghcr.io/helpers4/devcontainer/helpers4-common:1"
+      ]
+    },
     "ghcr.io/helpers4/devcontainer/copilot-dev:1": {
       "version": "1.0.4",
       "resolved": "ghcr.io/helpers4/devcontainer/copilot-dev@sha256:84ef7995ffbb060e57bfa1c903cfa1c370bc1b53ac811671c043e3503c021f17",
@@ -80,9 +88,9 @@
       ]
     },
     "ghcr.io/helpers4/devcontainer/org-workspace": {
-      "version": "1.0.1",
-      "resolved": "ghcr.io/helpers4/devcontainer/org-workspace@sha256:1fa9f2a3a0357cd53beff45bad54d2ec4b6a2bcfb27ef934d49fefce68365600",
-      "integrity": "sha256:1fa9f2a3a0357cd53beff45bad54d2ec4b6a2bcfb27ef934d49fefce68365600",
+      "version": "1.1.0",
+      "resolved": "ghcr.io/helpers4/devcontainer/org-workspace@sha256:ba7c122d5d324f4eb02f8f3e178f7513e2af255a11f23800dd2ecf761fc20998",
+      "integrity": "sha256:ba7c122d5d324f4eb02f8f3e178f7513e2af255a11f23800dd2ecf761fc20998",
       "dependsOn": [
         "ghcr.io/helpers4/devcontainer/helpers4-common:1",
         "ghcr.io/helpers4/devcontainer/github-dev:1"
@@ -92,14 +100,6 @@
       "version": "1.2.3",
       "resolved": "ghcr.io/helpers4/devcontainer/package-auto-install@sha256:11bf1e75e89cc231c309230164c3c97e79f93ec620a1bca2b60ff66545012a01",
       "integrity": "sha256:11bf1e75e89cc231c309230164c3c97e79f93ec620a1bca2b60ff66545012a01",
-      "dependsOn": [
-        "ghcr.io/helpers4/devcontainer/helpers4-common:1"
-      ]
-    },
-    "ghcr.io/helpers4/devcontainer/peon-ping:1": {
-      "version": "1.3.2",
-      "resolved": "ghcr.io/helpers4/devcontainer/peon-ping@sha256:c68e6e60db88027be315a65cd3244f75e8cba7ff1cd683b0e68df41b3c19d5b0",
-      "integrity": "sha256:c68e6e60db88027be315a65cd3244f75e8cba7ff1cd683b0e68df41b3c19d5b0",
       "dependsOn": [
         "ghcr.io/helpers4/devcontainer/helpers4-common:1"
       ]
