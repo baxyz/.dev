@@ -62,6 +62,12 @@
       "autoDiscover": true
     },
     "ghcr.io/helpers4/devcontainer/vite-plus:1": {},
+    // ── Rust ─────────────────────────────────────────────────────────────────
+    // folioscope's core and CLI. Each repo pins its exact toolchain in
+    // rust-toolchain.toml; rustup installs it on first cargo call.
+    "ghcr.io/devcontainers/features/rust:1": {
+      "targets": "wasm32-unknown-unknown"
+    },
     // ── Testing ──────────────────────────────────────────────────────────────
     // browser-hub's donut-e2e.ts (pnpm test:e2e) launches a real Firefox via
     // Playwright — only Firefox is needed, so Chromium/WebKit are skipped to
