@@ -55,6 +55,10 @@
 		{
 			"name": "🔒 site-work-arnaud-berenger",
 			"path": "../site-work-arnaud-berenger"
+		},
+		{
+			"name": "🌍 folioscope",
+			"path": "../folioscope"
 		}
 	],
 	"settings": {
