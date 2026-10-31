@@ -59,6 +59,10 @@
 		{
 			"name": "🌍 folioscope",
 			"path": "../folioscope"
+		},
+		{
+			"name": "🔒 contre-budget",
+			"path": "../contre-budget"
 		}
 	],
 	"settings": {
