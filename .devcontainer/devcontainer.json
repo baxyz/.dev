@@ -11,23 +11,39 @@
   "workspaceFolder": "/workspaces/.dev",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/.dev,type=bind,consistency=cached",
   "mounts": [],
-  // Dev servers of the site repos (Astro): servers must listen on 0.0.0.0 (server.host: true)
+  // Dev servers of the site repos (Astro, VitePress): servers must listen on 0.0.0.0 (--host)
   // so these forwarded ports are reachable from the host browser.
-  "forwardPorts": [4321, 4322],
+  "forwardPorts": [
+    4321,
+    4322,
+    4323
+  ],
   "portsAttributes": {
-    "4321": { "label": "site-work-arnaud-berenger", "onAutoForward": "notify" },
-    "4322": { "label": "site-dev-baxyz", "onAutoForward": "notify" }
+    "4321": {
+      "label": "site-work-arnaud-berenger",
+      "onAutoForward": "notify"
+    },
+    "4322": {
+      "label": "site-dev-baxyz",
+      "onAutoForward": "notify"
+    },
+    "4323": {
+      "label": "folioscope",
+      "onAutoForward": "notify"
+    }
   },
   "containerEnv": {
     "BAXYZ_ORG": "baxyz",
     "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions mozlz4 sqlite-reader",
-    "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}"
+    "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}",
+    "GRAPHITE_TOKEN": "${localEnv:GRAPHITE_BAXYZ_TOKEN}"
   },
   // GH_TOKEN: forwards a baxyz-scoped host token into the container so gh
   // and the GitHub VS Code extensions are authenticated out of the box.
   // Set on the host: export GH_TOKEN_FOR_BAXYZ=<token>
   "remoteEnv": {
-    "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}"
+    "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}",
+    "GRAPHITE_TOKEN": "${localEnv:GRAPHITE_BAXYZ_TOKEN}"
   },
   "features": {
     // ── Infrastructure ───────────────────────────────────────────────────────
@@ -39,7 +55,6 @@
     "ghcr.io/helpers4/devcontainer/org-workspace": {
       "autoDiscover": "public,private,internal,fork",
       "generateCodeWorkspace": true
-
     },
     "ghcr.io/devcontainers/features/git-lfs:1": {},
     "ghcr.io/helpers4/devcontainer/git-absorb:1": {},
@@ -54,6 +69,7 @@
     "ghcr.io/helpers4/devcontainer/claude-dev:1": {},
     "ghcr.io/helpers4/devcontainer/mistral-dev:1": {},
     "ghcr.io/helpers4/devcontainer/cline-dev:1": {},
+    "ghcr.io/helpers4/devcontainer/graphite-dev:1": {},
     // ── JavaScript ───────────────────────────────────────────────────────────
     "ghcr.io/helpers4/devcontainer/typescript-dev:1": {},
     "ghcr.io/helpers4/devcontainer/pnpm-store:1": {},
