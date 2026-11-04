@@ -29,13 +29,11 @@
       "onAutoForward": "notify"
     }
   },
-  "containerEnv": {
-    "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}",
-    "GRAPHITE_TOKEN": "${localEnv:GRAPHITE_BAXYZ_TOKEN}"
-  },
   // GH_TOKEN: forwards a baxyz-scoped host token into the container so gh
   // and the GitHub VS Code extensions are authenticated out of the box.
   // Set on the host: export GH_TOKEN_FOR_BAXYZ=<token>
+  // Secrets live in remoteEnv, not containerEnv: they are not baked into the container
+  // (docker run args / docker inspect) and a rotated token needs a reconnect, not a rebuild.
   "remoteEnv": {
     "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}",
     "GRAPHITE_TOKEN": "${localEnv:GRAPHITE_BAXYZ_TOKEN}"
