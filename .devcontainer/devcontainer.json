@@ -52,7 +52,7 @@
       "moby": false
     },
     // ── Dev environment ──────────────────────────────────────────────────────
-    "ghcr.io/helpers4/devcontainer/org-workspace": {
+    "ghcr.io/helpers4/devcontainer/org-workspace:1": {
       "autoDiscover": "public,private,internal,fork",
       "generateCodeWorkspace": true
     },
@@ -66,7 +66,10 @@
     },
     // ── AI ───────────────────────────────────────────────────────────────────
     "ghcr.io/helpers4/devcontainer/copilot-dev:1": {},
-    "ghcr.io/helpers4/devcontainer/claude-dev:1": {},
+    "ghcr.io/helpers4/devcontainer/claude-dev:1": {
+      "remoteControl": true,
+      "remoteControlAutoTrust": true
+    },
     "ghcr.io/helpers4/devcontainer/mistral-dev:1": {},
     "ghcr.io/helpers4/devcontainer/cline-dev:1": {},
     "ghcr.io/helpers4/devcontainer/graphite-dev:1": {},

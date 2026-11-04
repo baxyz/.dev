@@ -101,7 +101,7 @@
         "ghcr.io/helpers4/devcontainer/helpers4-common:1"
       ]
     },
-    "ghcr.io/helpers4/devcontainer/org-workspace": {
+    "ghcr.io/helpers4/devcontainer/org-workspace:1": {
       "version": "1.1.0",
       "resolved": "ghcr.io/helpers4/devcontainer/org-workspace@sha256:ba7c122d5d324f4eb02f8f3e178f7513e2af255a11f23800dd2ecf761fc20998",
       "integrity": "sha256:ba7c122d5d324f4eb02f8f3e178f7513e2af255a11f23800dd2ecf761fc20998",
