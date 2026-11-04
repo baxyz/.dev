@@ -61,8 +61,8 @@ shape:
   `ai`, `ci`, `deps`, `devcontainer`, `docs`, `workspace` — `ai` replaces the
   earlier `agents` name (consolidated with `roots`/tuxery's `ai` and helpers4's `governance`,
   which all designated the same thing: AI/agent guidance changes).
-- Sibling-repo orchestration is the thin `devcontainer`-only pattern (named volumes +
-  `setup-container.sh`'s clone-if-empty loop, sourced from `BAXYZ_REPOS`) — no
+- Sibling-repo orchestration is the thin `devcontainer`-only pattern (`org-workspace` feature
+  cloning into named volumes) — no
   `repos.json`/`scripts/`/`package.json` layer anymore, matching `brig-id/roots` and
   `tuxery/.dev`. No `scripts` scope as a result.
 - Every repo keeps a root-level `scopes.json` — the machine-readable scope list `/commit` and
@@ -115,8 +115,7 @@ machine-readable source and also lists alternative emoji per type (e.g. 🔒️ 
 ```
 .dev/
 ├── .devcontainer/
-│   ├── devcontainer.json       # Cross-repo dev environment (named volumes)
-│   └── setup-container.sh      # postCreateCommand: clone-into-volume-if-empty
+│   └── devcontainer.json       # Cross-repo dev environment (org-workspace clones siblings)
 ├── .vscode/
 │   └── settings.json           # Repo-specific overrides (scopes)
 ├── .distrobox/                 # Alternative to the devcontainer (host bind-mounts)
@@ -127,12 +126,12 @@ machine-readable source and also lists alternative emoji per type (e.g. 🔒️ 
 ```
 
 Sibling repos live **next to** this folder on the host, but the devcontainer no longer bind-mounts
-them — each is cloned into its own named Docker volume by `setup-container.sh` on first run, so
-the container works identically on GitHub Codespaces and locally. `BAXYZ_REPOS` in
-`devcontainer.json`'s `containerEnv` is the source of truth for the sibling repo list.
+them — the `org-workspace` feature clones each into a named Docker volume, so the container
+works identically on GitHub Codespaces and locally. Its options in `devcontainer.json` are the
+source of truth for the sibling repo list.
 
 ### What NOT to do here
 
 - Do **not** add runtime code, packages, or build outputs. This repo is configuration only.
 - Do **not** duplicate per-repo agent rules — they live in their own `AGENTS.md`.
-- When adding a new sibling repo, update `baxyz.code-workspace` and `.devcontainer/devcontainer.json` (`mounts` + `BAXYZ_REPOS`) together.
+- When adding a new sibling repo, nothing to update for the devcontainer (`org-workspace` discovers the org repos and updates `baxyz.code-workspace`); only `.distrobox/distrobox.ini` has a hardcoded list.

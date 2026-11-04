@@ -102,9 +102,9 @@
       ]
     },
     "ghcr.io/helpers4/devcontainer/org-workspace:1": {
-      "version": "1.1.0",
-      "resolved": "ghcr.io/helpers4/devcontainer/org-workspace@sha256:ba7c122d5d324f4eb02f8f3e178f7513e2af255a11f23800dd2ecf761fc20998",
-      "integrity": "sha256:ba7c122d5d324f4eb02f8f3e178f7513e2af255a11f23800dd2ecf761fc20998",
+      "version": "1.2.0",
+      "resolved": "ghcr.io/helpers4/devcontainer/org-workspace@sha256:df72f38c925c4c01a61af4abc821e2de2d498c25dc311b3c7fd539d74a908af4",
+      "integrity": "sha256:df72f38c925c4c01a61af4abc821e2de2d498c25dc311b3c7fd539d74a908af4",
       "dependsOn": [
         "ghcr.io/helpers4/devcontainer/helpers4-common:1",
         "ghcr.io/helpers4/devcontainer/github-dev:1"

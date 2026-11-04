@@ -5,8 +5,8 @@ Full canonical rules (commit format, restrictions, license) live in
 
 ## Workspace layout
 
-Every repo is cloned into its own named Docker volume at `/workspaces/<name>` by
-`setup-container.sh` on first run, and they open together in `baxyz.code-workspace`:
+Every repo is cloned into a named Docker volume at `/workspaces/<name>` by the
+`org-workspace` devcontainer feature, and they open together in `baxyz.code-workspace`:
 
 | Path | Repo | Role |
 | ---- | ---- | ---- |
@@ -18,7 +18,7 @@ Every repo is cloned into its own named Docker volume at `/workspaces/<name>` by
 | `/workspaces/sqlite-reader` | `sqlite-reader` | Read-only SQLite3 binary parser |
 
 There's no cross-repo script runner anymore — run `git`/`pnpm` commands directly in each repo, or
-loop over `$BAXYZ_REPOS` (set in `containerEnv`) from a shell one-liner if needed across all of them.
+loop over `/workspaces/*/` from a shell one-liner if needed across all of them.
 
 ## Common gotchas
 
@@ -30,10 +30,9 @@ Use `/commit` (Claude Code slash command) to auto-generate a message from staged
 LGPL-3.0-or-later exceptions — check the target repo's own `LICENSE`/`AGENTS.md` before assuming
 either. See AGENTS.md's Inheritance section for the license policy.
 
-**Adding a sibling repo**: update `baxyz.code-workspace`, `.devcontainer/devcontainer.json`
-(`mounts` + `BAXYZ_REPOS`), and `.distrobox/distrobox.ini` together — these three must stay in
-sync or `setup-container.sh`'s clone-if-empty loop and the devcontainer/distrobox mounts will
-disagree.
+**Adding a sibling repo**: nothing to do for the devcontainer (`org-workspace` discovers the
+org repos and updates `baxyz.code-workspace`); only `.distrobox/distrobox.ini` has a hardcoded
+repo list (`volume=`) to update by hand.
 
 ## AI persistence
 
