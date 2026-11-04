@@ -3,11 +3,8 @@
   "image": "mcr.microsoft.com/devcontainers/typescript-node:26",
   // Orchestrator devcontainer for the baxyz personal workspace.
   //
-  // Named volumes for every active baxyz repo, cloned into place by
-  // setup-container.sh's postCreateCommand on first run (fresh volume) —
-  // never re-clones over existing work. Works identically on GitHub
-  // Codespaces and local Docker Desktop/WSL2, unlike the previous
-  // host-bind-mount setup.
+  // The baxyz repos are cloned by the org-workspace feature into /workspaces/<name>
+  // (named Docker volume), identically on GitHub Codespaces and local Docker.
   "workspaceFolder": "/workspaces/.dev",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/.dev,type=bind,consistency=cached",
   "mounts": [],
@@ -33,8 +30,6 @@
     }
   },
   "containerEnv": {
-    "BAXYZ_ORG": "baxyz",
-    "BAXYZ_REPOS": ".github baxyz.github.io gnome-extensions mozlz4 sqlite-reader",
     "GH_TOKEN": "${localEnv:GH_TOKEN_FOR_BAXYZ}",
     "GRAPHITE_TOKEN": "${localEnv:GRAPHITE_BAXYZ_TOKEN}"
   },
@@ -95,6 +90,5 @@
       "browsers": "firefox"
     }
   },
-  "remoteUser": "node",
-  "postCreateCommand": "bash .devcontainer/setup-container.sh"
+  "remoteUser": "node"
 }
