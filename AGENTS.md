@@ -20,7 +20,6 @@ inherits these rules; per-repo `AGENTS.md` files only add project-specific detai
 
 - VS Code multi-root workspace (`baxyz.code-workspace`)
 - devcontainer setup (`.devcontainer/`)
-- fajro host setup (`host/`): `devc` (start/stop the org devcontainers on demand) and a systemd service keeping a Claude Remote Control server up from boot
 - shared AI / agent guidance
 
 This repository contains **no product runtime code** — it is configuration and documentation only.
@@ -33,7 +32,6 @@ This repository contains **no product runtime code** — it is configuration and
 │   └── devcontainer.json       # Cross-repo dev environment (org-workspace clones siblings)
 ├── .vscode/
 │   └── settings.json           # Repo-specific overrides (scopes)
-├── host/                       # fajro host setup: devc, claude-host, systemd unit, installer
 ├── baxyz.code-workspace        # Multi-root workspace + shared settings
 ├── AGENTS.md                   # This file (canonical workspace-wide rules)
 ├── README.md
