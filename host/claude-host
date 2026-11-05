@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# claude-host — keep a Claude Code Remote Control server running on this host.
+#
+# The server runs in a detached tmux session (it needs a TTY) and is restarted if it exits.
+# It lets claude.ai/code and the Claude mobile app start sessions in ~/projects; that
+# "host" session is the one that starts the org devcontainers on demand (see `devc`).
+#
+#   claude-host start | stop | restart | status | attach
+set -euo pipefail
+
+SESSION="${CLAUDE_HOST_TMUX:-claude-host}"
+NAME="${CLAUDE_HOST_NAME:-$(hostname -s)}"
+DIR="${CLAUDE_HOST_DIR:-$HOME/projects}"
+MODE="${CLAUDE_HOST_PERMISSION_MODE:-default}"
+
+running() { tmux has-session -t "$SESSION" 2>/dev/null; }
+
+loop_cmd() {
+  # Wait for Docker (devc needs it), then (re)start the server; back off between restarts.
+  cat <<EOF
+until docker info >/dev/null 2>&1; do sleep 3; done
+while :; do
+  claude remote-control --name '$NAME' --permission-mode '$MODE'
+  echo "[claude-host] remote-control exited (\$?); restarting in 15s"
+  sleep 15
+done
+EOF
+}
+
+case "${1:-status}" in
+  start)
+    if running; then echo "claude-host already running"; exit 0; fi
+    command -v claude >/dev/null || { echo "claude not found in PATH" >&2; exit 1; }
+    tmux new-session -d -s "$SESSION" -x 200 -y 50 -c "$DIR" "bash -c $(printf '%q' "$(loop_cmd)")"
+    echo "claude-host started (tmux: $SESSION, dir: $DIR, name: $NAME)"
+    ;;
+  stop)
+    if running; then tmux kill-session -t "$SESSION" && echo "claude-host stopped"; else echo "claude-host not running"; fi
+    ;;
+  restart) "$0" stop; "$0" start ;;
+  status)
+    if running; then
+      echo "running (tmux: $SESSION)"
+      tmux capture-pane -t "$SESSION" -p | sed 's/[[:cntrl:]]//g' | grep -v '^[[:space:]]*$' | tail -n 6
+    else
+      echo "not running"; exit 1
+    fi
+    ;;
+  attach) exec tmux attach -t "$SESSION" ;;
+  *) echo "usage: claude-host start|stop|restart|status|attach" >&2; exit 2 ;;
+esac
