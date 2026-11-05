@@ -33,9 +33,8 @@ Use `/commit` (Claude Code slash command) to auto-generate a message from staged
 LGPL-3.0-or-later exceptions — check the target repo's own `LICENSE`/`AGENTS.md` before assuming
 either. See AGENTS.md's Inheritance section for the license policy.
 
-**Adding a sibling repo**: nothing to do for the devcontainer (`org-workspace` discovers the
-org repos and updates `baxyz.code-workspace`); only `.distrobox/distrobox.ini` has a hardcoded
-repo list (`volume=`) to update by hand.
+**Adding a sibling repo**: nothing to do — `org-workspace` discovers the org repos and updates
+`baxyz.code-workspace`.
 
 **Git workflow**: branch, commit by subject (Conventional Commits), push only once it looks safe
 (human review of the diff recommended first, ask if unsure), open a PR — never merge, merging is
