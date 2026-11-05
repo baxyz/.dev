@@ -19,7 +19,8 @@ inherits these rules; per-repo `AGENTS.md` files only add project-specific detai
 ## Scope
 
 - VS Code multi-root workspace (`baxyz.code-workspace`)
-- devcontainer setup (`.devcontainer/`), plus a distrobox alternative (`.distrobox/`)
+- devcontainer setup (`.devcontainer/`)
+- fajro host setup (`host/`): `devc` (start/stop the org devcontainers on demand) and a systemd service keeping a Claude Remote Control server up from boot
 - shared AI / agent guidance
 
 This repository contains **no product runtime code** — it is configuration and documentation only.
@@ -32,7 +33,7 @@ This repository contains **no product runtime code** — it is configuration and
 │   └── devcontainer.json       # Cross-repo dev environment (org-workspace clones siblings)
 ├── .vscode/
 │   └── settings.json           # Repo-specific overrides (scopes)
-├── .distrobox/                 # Alternative to the devcontainer (host bind-mounts)
+├── host/                       # fajro host setup: devc, claude-host, systemd unit, installer
 ├── baxyz.code-workspace        # Multi-root workspace + shared settings
 ├── AGENTS.md                   # This file (canonical workspace-wide rules)
 ├── README.md
@@ -80,7 +81,7 @@ The container is self-contained; no host toolchain installation is needed.
 - Do not duplicate per-repo agent rules — they live in each repo's own `AGENTS.md`.
 - Add future repositories as siblings of `.dev/`, not nested inside it. Nothing to update by hand
   for the devcontainer: `org-workspace` discovers the org repos and keeps `baxyz.code-workspace`
-  up to date. Only `.distrobox/distrobox.ini` has a hardcoded repo list to update by hand.
+  up to date.
 
 ## Commit conventions
 
