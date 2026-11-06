@@ -30,8 +30,9 @@ pre-clone needed).
 
 ## Host setup
 
-Export a GitHub token scoped to baxyz before opening the devcontainer:
-
-```bash
-export GH_TOKEN_FOR_BAXYZ=<your-token>
-```
+Secrets (`GH_TOKEN`, …) come from OpenBao — `kv/orgs/baxyz`, plus `kv/shared/*` — through the
+[`openbao-env`](https://github.com/helpers4/devcontainer/tree/main/src/openbao-env) feature, into
+every process of the container (VS Code included). On fajro, `devc up baxyz` hands the
+container its credentials. In GitHub Codespaces, set the Codespaces secrets `BAO_ROLE_ID` and
+`BAO_SECRET_ID` (AppRole `baxyz`) and give the codespace Tailscale access: OpenBao is only
+reachable on the tailnet.
