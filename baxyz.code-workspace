@@ -63,6 +63,18 @@
 		{
 			"name": "🔒 contre-budget",
 			"path": "../contre-budget"
+		},
+		{
+			"name": "🌍 baxyz",
+			"path": "../baxyz"
+		},
+		{
+			"name": "🔒 fajro",
+			"path": "../fajro"
+		},
+		{
+			"name": "🔒 dip",
+			"path": "../dip"
 		}
 	],
 	"settings": {
