@@ -1,5 +1,8 @@
 {
   "name": "baxyz",
+  // Stable machine name: Remote Control names the environment "<hostname>:<folder>", and the
+  // default hostname is the container id, which changes on every rebuild.
+  "runArgs": ["--hostname=baxyz"],
   "image": "mcr.microsoft.com/devcontainers/typescript-node:26",
   // Orchestrator devcontainer for the baxyz personal workspace.
   //
