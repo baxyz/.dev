@@ -1,9 +1,9 @@
 {
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
-      "version": "1.10.2",
-      "resolved": "ghcr.io/devcontainers/features/docker-outside-of-docker@sha256:661b0fd4c57a7e0bd14d99701ab9bc824719678a9319118728f8d9c59441b7e4",
-      "integrity": "sha256:661b0fd4c57a7e0bd14d99701ab9bc824719678a9319118728f8d9c59441b7e4"
+      "version": "1.10.3",
+      "resolved": "ghcr.io/devcontainers/features/docker-outside-of-docker@sha256:b499ed838d362615b0681c2eca96525b009ecdbc1f2679351930b10fd3894bcd",
+      "integrity": "sha256:b499ed838d362615b0681c2eca96525b009ecdbc1f2679351930b10fd3894bcd"
     },
     "ghcr.io/devcontainers/features/git-lfs:1": {
       "version": "1.2.6",
@@ -29,9 +29,9 @@
       ]
     },
     "ghcr.io/helpers4/devcontainer/claude-dev:1": {
-      "version": "1.4.2",
-      "resolved": "ghcr.io/helpers4/devcontainer/claude-dev@sha256:ac0d1c3a7e705a474477838f954e9ba111b7fca15b1f1a6448eacbf2b753ef8a",
-      "integrity": "sha256:ac0d1c3a7e705a474477838f954e9ba111b7fca15b1f1a6448eacbf2b753ef8a",
+      "version": "1.4.3",
+      "resolved": "ghcr.io/helpers4/devcontainer/claude-dev@sha256:c75b3501171e53dee9b526c0957dc2cc1c62395f6a9340ebc76881fc30c8afda",
+      "integrity": "sha256:c75b3501171e53dee9b526c0957dc2cc1c62395f6a9340ebc76881fc30c8afda",
       "dependsOn": [
         "ghcr.io/helpers4/devcontainer/helpers4-common:1"
       ]
